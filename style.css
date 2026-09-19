@@ -1,0 +1,281 @@
+:root {
+  --bg-top: #ffedf5;
+  --bg-mid: #ffd6eb;
+  --bg-bottom: #ff9dc8;
+  --rose: #ff5ca8;
+  --rose-deep: #ef3d8c;
+  --pink-soft: #ffe6f3;
+  --pink-light: #fff6fb;
+  --pink-card: rgba(255, 255, 255, 0.5);
+  --text: #5d1d3f;
+  --muted: #7a3d5d;
+  --gold: #ffcb77;
+  --shadow: rgba(170, 52, 108, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 35%, var(--bg-bottom) 100%);
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(14px);
+  opacity: 0.7;
+}
+
+.orb-one {
+  width: 260px;
+  height: 260px;
+  background: rgba(255, 255, 255, 0.45);
+  top: 8%;
+  left: 6%;
+  animation: drift 10s ease-in-out infinite alternate;
+}
+
+.orb-two {
+  width: 320px;
+  height: 320px;
+  background: rgba(255, 131, 196, 0.3);
+  right: 2%;
+  top: 12%;
+  animation: drift 13s ease-in-out infinite alternate-reverse;
+}
+
+.orb-three {
+  width: 420px;
+  height: 420px;
+  background: rgba(255, 245, 250, 0.35);
+  left: 30%;
+  bottom: -18%;
+  animation: drift 15s ease-in-out infinite alternate;
+}
+
+.page-shell {
+  width: min(860px, 100%);
+  position: relative;
+  z-index: 1;
+}
+
+.love-card {
+  background: rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 32px;
+  box-shadow: 0 24px 60px var(--shadow);
+  padding: 28px 22px 26px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.love-card::before,
+.love-card::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.love-card::before {
+  top: -55px;
+  left: -30px;
+}
+
+.love-card::after {
+  right: -40px;
+  bottom: -35px;
+}
+
+.top-badges {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.badge {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 92, 168, 0.2);
+  color: var(--rose-deep);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--rose-deep);
+  font-weight: 700;
+  font-size: 0.72rem;
+}
+
+h1 {
+  margin: 18px 0 12px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3rem, 12vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.hero-heart {
+  font-size: clamp(2.2rem, 8vw, 4rem);
+  color: var(--rose);
+  line-height: 1;
+  margin: 8px 0 20px;
+  animation: beat 1.3s ease-in-out infinite;
+}
+
+.message-box {
+  background: rgba(255, 255, 255, 0.56);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 24px;
+  padding: 20px 18px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.message-box p {
+  margin: 0 0 18px;
+  font-size: clamp(1.02rem, 2.8vw, 1.18rem);
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.message-box p:last-child {
+  margin-bottom: 0;
+}
+
+.promise-panel {
+  margin-top: 24px;
+  display: grid;
+  place-items: center;
+  gap: 12px;
+}
+
+.promise-panel p {
+  margin: 0;
+  color: var(--text);
+  font-weight: 700;
+  font-size: clamp(1.02rem, 3vw, 1.2rem);
+  line-height: 1.5;
+}
+
+.divider {
+  width: 170px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--rose), transparent);
+}
+
+.mini-grid {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.mini-card {
+  background: var(--pink-soft);
+  border: 1px solid rgba(255, 92, 168, 0.14);
+  border-radius: 18px;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mini-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--rose-deep);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.mini-card strong {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.signature-wrap {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.heart-badge {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 1.6rem;
+  box-shadow: 0 12px 24px rgba(239, 61, 140, 0.3);
+  animation: beat 1.4s ease-in-out infinite;
+}
+
+.signature {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  line-height: 1.1;
+  color: var(--text);
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.12); }
+  45% { transform: scale(0.96); }
+  65% { transform: scale(1.08); }
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(18px, -18px) scale(1.08); }
+}
+
+@media (max-width: 640px) {
+  .love-card {
+    padding: 24px 16px 20px;
+    border-radius: 24px;
+  }
+
+  .mini-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .signature-wrap {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
